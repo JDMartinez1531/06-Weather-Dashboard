@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>06-Weather Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/9247565176.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets\style.css" />
+  </head>
+
+  <body>
+    <header class="header bg-dark">
+      <h1>Weather Dashboard</h1>
+    </header>
+
+    <div class="container-fluid mainContainer">
+      <div class="col-3">
+        <h4>Find Your City</h4>
+        <div class="input-group inputSearch">
+          <input
+            type="text"
+            class="form-control"
+            id="search-text"
+            placeholder="Search City"
+          />
+          <div class="input-group-append">
+            <button type="button" class="btn btn-outline-secondary bg-info" id="search-button">
+                <i class="fas fa-search"></i>
+              </button>
+          </div>
+        </div>
+        <div class="cities">
+            <div class="card">
+                <ul class ="list-group" id="cities-prepend">
+            </div>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="row">
+            <div class="card col-12 displayBox">
+                <h4><span id="currentCity"></span></h4>
+                <div>Temperature:<span id="temp"></span></div>
+                <div>Humidity:<span id="humidity"></span></div>
+                <div>Wind Speed:<span id="wind"></span></div>
+                <div>UV Index:<span class="badge text-wrap" id="uvIndex"></span>
+                </div>
+            </div>
+        </div>
+        <h5 class="fiveDay">5 - Day Forecast</h5>
+        <div class="row col-12 days" id="days">
+        </div>
+    </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js" type="text/javascript"></script>
+  </body>
+</html>
