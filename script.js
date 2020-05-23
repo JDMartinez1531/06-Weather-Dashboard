@@ -7,6 +7,10 @@ if (localStorage.getItem("currentCity") !== null) {
   currentCity = localStorage.getItem("currentCity");
 }
 
+if (localStorage.getItem("cities") !== null) {
+  cities = JSON.parse(localStorage.getItem("cities"));
+  getCities();
+}
 // ajax request
 function getWeather(city) {
   var queryUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=5`;
@@ -49,7 +53,7 @@ function getCities() {
     var activeClass = "bg-light";
     if (city === currentCity) activeClass = "bg-active";
     $("#cities-prepend").prepend(
-      `<li class="list-group-item d-flex justify-content-between ${activeClass}" onclick="setActiveCity('${city}')">${city}
+      `<li class="list-group-item d-flex justify-content-between ${activeClass}" onclick="setCurrentCity('${city}')">${city}
 			</li>`
     );
   });
