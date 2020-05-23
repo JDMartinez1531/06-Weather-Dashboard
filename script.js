@@ -62,21 +62,17 @@ function setCurrentCity(city) {
   getCities();
 }
 function addCity() {
-  //getting the user city input text
   var city = $("#search-text").val();
 
   if (!cities.includes(city)) {
-    //added city to the array of cities to save at the local storage
     cities.push(city);
 
-    //saving to the local storage array of cities
     localStorage.setItem("cities", JSON.stringify(cities));
   }
 
   setCurrentCity(city);
 }
 
-// On Document Ready
 $(document).ready(function () {
   $("#search-button").on("click", addCity);
 });
