@@ -27,6 +27,10 @@ function getWeather(city) {
     $("#wind").text(" " + json.current.wind_mph + " MPH");
     $("#uvIndex").text("  " + uv);
 
+    $("#uvIndex").addClass(getUVColor(uv));
+
+    $("#days").empty();
+
     var forecast = json.forecast.forecastday;
 
     for (var i = 0; i < 5; i++) {
@@ -46,6 +50,20 @@ function getWeather(city) {
     }
   });
 }
+
+function getUVColor(uv) {
+  clearUv();
+  if (uv >= 0 && uv <= 5) {
+    return "badge-success";
+  } else if (uv >= 5 && uv <= 8) {
+    return "badge-warning";
+  } else if (uv >= 8) {
+    return "badge-danger";
+  }
+}
+function clearUv() {
+  $("#uvIndex").removeClass(["badge-success", "badge-warning", "badge-danger"]);
+}
 function getCities() {
   $("#cities-prepend").empty();
 
@@ -63,7 +81,23 @@ function getCities() {
 function setCurrentCity(city) {
   currentCity = city;
   localStorage.setItem("currentCity", currentCity);
+  clearUv();
   getCities();
+  getUVColor();
+}
+function removeCity(city, event) {
+  cities = cities.filter((c) => c !== city);
+
+  localStorage.setItem("cities", JSON.stringify(cities));
+
+  if (city === activeCity) {
+    activeCity = null;
+    localStorage.removeItem("activeCity");
+  }
+
+  getCities();
+
+  if (event) event.stopPropagation();
 }
 function addCity() {
   var city = $("#search-text").val();
