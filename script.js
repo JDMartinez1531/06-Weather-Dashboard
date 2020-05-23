@@ -3,6 +3,10 @@ var cities = [];
 var currentCity = "";
 var apiKey = "6ec0b89616ce4c21ba3174214202305";
 
+if (localStorage.getItem("currentCity") !== null) {
+  currentCity = localStorage.getItem("currentCity");
+}
+
 // ajax request
 function getWeather(city) {
   var queryUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=5`;
