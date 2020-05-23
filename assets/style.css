@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.mainContainer {
+  display: flex;
+}
+
+h4 {
+  font-weight: bold;
+}
+
+#id {
+  display: flex;
+  justify-content: space-around;
+}
+
+.searchIcon {
+  height: 25px;
+  width: 25px;
+}
+
+.inputSearch {
+  display: flex;
+  flex-direction: row;
+}
